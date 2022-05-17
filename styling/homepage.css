@@ -1,12 +1,3 @@
-* {
-    box-sizing: border-box;
-    user-select: text;
-}
-html,
-body {
-    margin: 0;
-    padding: 0;
-}
 body {
     background-image: url("/resources/images/forest.jpg");
     background-repeat: no-repeat;

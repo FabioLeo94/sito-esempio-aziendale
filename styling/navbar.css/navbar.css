@@ -12,9 +12,11 @@ header nav {
     background-color: rgb(231, 231, 231);
     font-family:  Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
 }
+.nav-logo-container a{
+    display: contents;
+}
 .nav-logo{
     cursor: pointer;
-
     width: 210px;
 }
 

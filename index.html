@@ -5,7 +5,7 @@
     git remote add origin [url] <----- aggiungere un url di origine di github dove caricare il backup
     git push origin [branch] <-------- caricare su github l'attuale versione del ramo o del master
  -->
-<html lang="it">
+<html lang="en">
 
 <head>
     <meta charset="UTF-8">
@@ -14,22 +14,21 @@
     <link rel="icon" type="image/x-icon" href="#">
     <link rel="stylesheet" href="/styling/navbar.css/navbar.css">
     <link rel="stylesheet" href="/styling/homepage.css" />
+    <link rel="stylesheet" href="/styling/general.css" />
     <title>Unbelivable Places™</title>
 </head>
-
 <body>
     <header>
         <nav>
             <div class="menu-icon">
-                <img src="/resources/icons/menu.png"/>
+                <img src="/resources/icons/menu.png" />
             </div>
             <div class="nav-logo-container">
-                <img class="nav-logo" src="/resources/logo/unbelivable_place_logo.png"
-                    alt="logo unbelivable place&trade;" />
+                <a href="/"><img class="nav-logo" src="/resources/logo/unbelivable_place_logo.png" alt="logo unbelivable place&trade;" /></a>
             </div>
             <ul>
-                <li><a href="#">Home</a></li>
-                <li class="shop-btn"><a href="#">Shop</a></li>
+                <li><a href="/">Home</a></li>
+                <li class="shop-btn"><a href="/pages/shop.html">Shop</a></li>
                 <li class="story-btn"><a href="#">Our Story</a></li>
                 <li class="exploration-btn"><a href="#">Our Exploration</a></li>
                 <li class="hike-btn"><a href="#" title="Not for noobs!">Hike Whit us!</a></li>
@@ -37,7 +36,7 @@
         </nav>
         <section class="side-menu">
             <ul>
-                <li><a href="#">Home</a></li>
+                <li><a href="/">Home</a></li>
                 <li class="shop-btn"><a href="#">Shop</a></li>
                 <li class="story-btn"><a href="#">Our Story</a></li>
                 <li class="exploration-btn"><a href="#">Our Exploration</a></li>
@@ -102,8 +101,7 @@
                 <div class="p-container-4">
                     <p class="img-para">Sometimes we<br />bullize the noob<br />of the moment,<br />becouse we<br />hate noobs...</p>
                     <p class="under-p">*Why they want follow us in forests<br />or climb mountains whit
-                        us?!<br />They're
-                        so lazy...</p>
+                        us?!<br />They're so ridiculous...</p>
                 </div>
                 <div class="img-container-4">
                     <img src="/resources/images/bullizing_nobs.jpg" alt="person lost in the woods" />
@@ -138,7 +136,7 @@
         <script src="/scripts/index.js"></script>
         <script>
             let cards = document.querySelectorAll("[class*='hiking-']>[class*='container-']");
-            let delay = 900;
+            let delay = window.screen.availHeight - 50;
             setInterval(() => {
                 cards.forEach((el, id) => {
                     let bounds = el.getBoundingClientRect();
