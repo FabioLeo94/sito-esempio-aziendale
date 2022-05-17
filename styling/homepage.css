@@ -527,33 +527,7 @@ footer {
         width: 100vw;
         left: 0;
     }
-}
-@media only screen and (max-width: 450px) {
-    .fs-homepage {
-        height: 600px;
-    }
-    .fs-title {
-        font-size: 29px;
-    }
-    .fs-second-title-content {
-        width: max-content;
-        margin: 0;
-    }
-    .fs-second-title-content p {
-        font-size: 20px;
-    }
-    /* .fs-par {
-        font-size: 13px;
-    } */
-    .logo-container .camping-logo {
-        width: 100px;
-    }
-    .fs-par-container {
-        margin-top: 130px;
-        height: 120px;
-    }
-}
-@media only screen and (max-width: 350px) {
+
     .hiking-1 .container-1 .p-container-1{
         display: flex;
         width: 100wv;
@@ -604,5 +578,31 @@ footer {
     .hiking-6 .container-6 .p-container-6 .under-p{
         width: calc(100vw - 50px);
         align-self: flex-end;
+    }
+
+}
+@media only screen and (max-width: 450px) {
+    .fs-homepage {
+        height: 600px;
+    }
+    .fs-title {
+        font-size: 29px;
+    }
+    .fs-second-title-content {
+        width: max-content;
+        margin: 0;
+    }
+    .fs-second-title-content p {
+        font-size: 20px;
+    }
+    /* .fs-par {
+        font-size: 13px;
+    } */
+    .logo-container .camping-logo {
+        width: 100px;
+    }
+    .fs-par-container {
+        margin-top: 130px;
+        height: 120px;
     }
 }
