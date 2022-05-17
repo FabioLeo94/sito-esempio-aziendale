@@ -1,7 +1,7 @@
-const shopBtn = document.querySelector("#shop-btn");
-const storyBtn = document.querySelector("#story-btn");
-const explorationBtn = document.querySelector("#exploration-btn");
-const hikeBtn = document.querySelector("#hike-btn");
+const shopBtn = document.querySelector(".shop-btn");
+const storyBtn = document.querySelector(".story-btn");
+const explorationBtn = document.querySelector(".exploration-btn");
+const hikeBtn = document.querySelector(".hike-btn");
 
 const mobileMenu = document.querySelector(".menu-icon");
 const sideMenu = document.querySelector(".side-menu");

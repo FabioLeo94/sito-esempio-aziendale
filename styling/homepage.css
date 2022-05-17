@@ -80,6 +80,7 @@ body {
     padding: 10px;
     border-bottom: 3px solid rgb(0, 0, 0);
     border-top: 3px solid rgb(0, 0, 0);
+    margin-top: 200px;
 }
 .fs-par {
     text-align: center;
@@ -92,9 +93,10 @@ body {
     position: absolute;
     z-index: 2;
 }
+
 /* CAMPING LOGO */
 
-.logo-container{
+.logo-container {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -103,8 +105,7 @@ body {
     height: 180px;
     /* border: 2px solid red; */
 }
-
-.logo-container .camping-logo{
+.logo-container .camping-logo {
     z-index: 1;
     margin-top: -10px;
     /* margin-left: -13px; */
@@ -133,23 +134,23 @@ body {
     -webkit-transition: all 1s cubic-bezier(0.63, 0.01, 0.27, 0.99);
     transition: all 1s cubic-bezier(0.63, 0.01, 0.27, 0.99);
 }
-[class*="p-container-"]{
+[class*="p-container-"] {
     position: relative;
     z-index: 3;
 }
-[class*="p-container-"]>p{
+[class*="p-container-"]>p {
     font-size: 35px;
-    color:rgb(255, 255, 255);
+    color: rgb(255, 255, 255);
     text-shadow: 0 0 5px black, 0 0 5px black;
 }
-
-[class^="p-container-"]>.under-p{
+[class^="p-container-"]>.under-p {
     margin: 0;
     font-family: Georgia, 'Times New Roman', Times, serif;
     font-size: 13px;
 }
 
 /* IMAGES AND DESCRIPTIONS - HOMEPAGE - TYPE: 1*/
+
 .hiking-1 {
     /* width: 100vw; */
     padding: 0;
@@ -343,220 +344,265 @@ footer {
 
 /* RESPONSIVE */
 
-@media only screen and (max-width: 900px){
-    .fs-homepage{
+@media only screen and (max-width: 900px) {
+    .fs-homepage {
         box-shadow: inset 0 0 150px;
         height: 850px;
     }
-    .fs-title{
+    .fs-title {
         font-size: 50px;
     }
-
     .fs-second-title-content p {
         font-size: 25px;
     }
-
     .fs-par {
         font-size: 20px;
     }
-    
+    .fs-par-container {
+        margin-top: 130px;
+    }
     /* IMG AND DESC */
-    [class*="hiking-"] [class*="container-"] [class^="img-container-"]{
+    [class*="hiking-"] [class*="container-"] [class^="img-container-"] {
         flex-shrink: 0;
     }
-    [class*="hiking-"] [class*="container-"] [class^="p-container-"] .img-para{
+    [class*="hiking-"] [class*="container-"] [class^="p-container-"] .img-para {
         font-size: 30px;
         margin: 0;
     }
-    .hiking-1 .container-1 .img-container-1{
+    .hiking-1 .container-1 .img-container-1 {
         width: 350px;
         height: max-content;
     }
-    .hiking-1 .container-1 .img-container-1 img{
+    .hiking-1 .container-1 .img-container-1 img {
         position: relative;
         width: 520px;
         left: -100px;
     }
-    .hiking-2 .container-2 .img-container-2{
+    .hiking-2 .container-2 .img-container-2 {
         width: 350px;
         height: 300px;
     }
-    .hiking-2 .container-2 .img-container-2 img{
+    .hiking-2 .container-2 .img-container-2 img {
         position: relative;
         width: 450px;
         top: 0px;
         left: 100px;
     }
-    .hiking-3 .container-3 .img-container-3{
+    .hiking-3 .container-3 .img-container-3 {
         width: 320px;
         height: max-content;
     }
-    .hiking-3 .container-3 .img-container-3 img{
+    .hiking-3 .container-3 .img-container-3 img {
         position: relative;
         width: 450px;
         left: -40px;
     }
-    .hiking-4 .container-4 .img-container-4{
+    .hiking-4 .container-4 .img-container-4 {
         width: 400px;
         height: max-content;
     }
-    .hiking-4 .container-4 .img-container-4 img{
+    .hiking-4 .container-4 .img-container-4 img {
         position: relative;
         width: 500px;
     }
-    .hiking-5 .container-5 .img-container-5{
+    .hiking-5 .container-5 .img-container-5 {
         width: 320px;
         height: max-content;
     }
-    .hiking-5 .container-5 .img-container-5 img{
+    .hiking-5 .container-5 .img-container-5 img {
         position: relative;
         width: 450px;
         left: -40px;
     }
-    .hiking-6 .container-6 .img-container-6{
+    .hiking-6 .container-6 .img-container-6 {
         width: 400px;
         height: max-content;
     }
-    .hiking-6 .container-6 .img-container-6 img{
+    .hiking-6 .container-6 .img-container-6 img {
         display: flex;
         position: relative;
         width: 500px;
     }
 }
-
-@media only screen and (max-width: 680px){
-    
-    .fs-title{
+@media only screen and (max-width: 680px) {
+    .fs-title {
         font-size: 40px;
     }
-
     .fs-second-title-content p {
         font-size: 20px;
     }
-
     .fs-par {
         font-size: 14px;
     }
-
-    .logo-container .camping-logo{
+    .logo-container .camping-logo {
         width: 100px;
     }
-    .fs-par-container{
+    .fs-par-container {
+        margin-top: 130px;
         height: 120px;
     }
-
     /* IMG AND DESC */
-    [class*="hiking-"]{
+    [class*="hiking-"] {
         display: flex;
         justify-content: center;
     }
-    [class*="hiking-"] [class*="container-"] [class^="p-container-"] .img-para{
+    [class*="hiking-"] [class*="container-"] [class^="p-container-"] .img-para {
         margin: 0;
         font-size: 30px;
         width: 400px;
     }
-    [class*="hiking-"] [class*="container-"] [class^="p-container-"] .under-p{
+    [class*="hiking-"] [class*="container-"] [class^="p-container-"] .under-p {
         font-size: 11px;
     }
-
-    [class*="hiking-"] [class*="container-"] [class^="p-container-"] img{
+    [class*="hiking-"] [class*="container-"] [class^="p-container-"] img {
         float: none;
     }
-
-    [class*="hiking-"] [class*="container-"]{
+    [class*="hiking-"] [class*="container-"] {
         flex-grow: 1;
         flex-shrink: 0;
     }
-    [class*="hiking-"] [class*="container-"] [class^="p-container-"]{
+    [class*="hiking-"] [class*="container-"] [class^="p-container-"] {
         display: flex;
         flex-direction: column;
         position: absolute;
         z-index: 3;
     }
-    .hiking-1 .container-1 .img-container-1{
+    .hiking-1 .container-1 .img-container-1 {
         position: relative;
         width: 100vw;
         height: max-content;
     }
-    .hiking-1 .container-1 .img-container-1 img{
+    .hiking-1 .container-1 .img-container-1 img {
         position: relative;
         width: 100vw;
         left: 0;
     }
-    .hiking-2 .container-2 .img-container-2{
+    .hiking-2 .container-2 .img-container-2 {
         position: relative;
         width: 100vw;
         height: max-content;
     }
-    .hiking-2 .container-2 .img-container-2 img{
+    .hiking-2 .container-2 .img-container-2 img {
         position: relative;
         width: 100vw;
         left: 0;
         top: 0px;
     }
-    .hiking-3 .container-3 .img-container-3{
+    .hiking-3 .container-3 .img-container-3 {
         position: relative;
         width: 100vw;
         height: max-content;
     }
-    .hiking-3 .container-3 .img-container-3 img{
+    .hiking-3 .container-3 .img-container-3 img {
         position: relative;
         width: 100vw;
         left: 0px;
     }
-    .hiking-4 .container-4 .img-container-4{
+    .hiking-4 .container-4 .img-container-4 {
         position: relative;
         width: 100vw;
         height: max-content;
     }
-    .hiking-4 .container-4 .img-container-4 img{
+    .hiking-4 .container-4 .img-container-4 img {
         position: relative;
         width: 100vw;
         left: 0;
     }
-    .hiking-5 .container-5 .img-container-5{
+    .hiking-5 .container-5 .img-container-5 {
         width: 100vw;
         height: max-content;
     }
-    .hiking-5 .container-5 .img-container-5 img{
+    .hiking-5 .container-5 .img-container-5 img {
         position: relative;
         width: 100vw;
         left: 0px;
     }
-    .hiking-6 .container-6 .img-container-6{
+    .hiking-6 .container-6 .img-container-6 {
         position: relative;
         width: 100vw;
         height: fit-content;
     }
-    .hiking-6 .container-6 .img-container-6 img{
+    .hiking-6 .container-6 .img-container-6 img {
         position: relative;
         width: 100vw;
         left: 0;
     }
 }
-
-@media only screen and (max-width: 450px){
-    .fs-title{
-        font-size: 30px;
+@media only screen and (max-width: 450px) {
+    .fs-homepage {
+        height: 600px;
     }
-
-    .fs-second-title-content{
+    .fs-title {
+        font-size: 29px;
+    }
+    .fs-second-title-content {
         width: max-content;
         margin: 0;
     }
-
     .fs-second-title-content p {
         font-size: 20px;
     }
-
-    .fs-par {
-        font-size: 18px;
-    }
-
-    .logo-container .camping-logo{
+    /* .fs-par {
+        font-size: 13px;
+    } */
+    .logo-container .camping-logo {
         width: 100px;
     }
-    .fs-par-container{
+    .fs-par-container {
+        margin-top: 130px;
         height: 120px;
+    }
+}
+@media only screen and (max-width: 350px) {
+    .hiking-1 .container-1 .p-container-1{
+        display: flex;
+        width: 100wv;
+    }
+    .hiking-1 .container-1 .p-container-1 .under-p{
+        width: calc(100vw - 50px);
+        align-self: flex-start;
+    }
+
+    .hiking-2 .container-2 .p-container-2{
+        display: flex;
+        width: 100wv;
+    }
+    .hiking-2 .container-2 .p-container-2 .under-p{
+        width: calc(100vw - 50px);
+        align-self: flex-end;
+    }
+    .hiking-3 .container-3 .p-container-3{
+        display: flex;
+        width: 100wv;
+    }
+    .hiking-3 .container-3 .p-container-3 .under-p{
+        width: calc(100vw - 50px);
+        align-self: flex-start;
+    }
+
+    .hiking-4 .container-4 .p-container-4{
+        display: flex;
+        width: 100wv;
+    }
+    .hiking-4 .container-4 .p-container-4 .under-p{
+        width: calc(100vw - 50px);
+        align-self: flex-end;
+    }
+    .hiking-51 .container-5 .p-container-5{
+        display: flex;
+        width: 100wv;
+    }
+    .hiking-5 .container-5 .p-container-5 .under-p{
+        width: calc(100vw - 50px);
+        align-self: flex-start;
+    }
+
+    .hiking-6 .container-6 .p-container-6{
+        display: flex;
+        width: 100wv;
+    }
+    .hiking-6 .container-6 .p-container-6 .under-p{
+        width: calc(100vw - 50px);
+        align-self: flex-end;
     }
 }
