@@ -37,13 +37,15 @@ header nav ul li {
     align-items: center;
     width: fit-content;
     height: auto;
-    border-left: 2px solid rgb(161, 161, 161);
+    /* border-left: 2px solid rgb(161, 161, 161); */
 }
 header nav ul li a {
-    display: flex;
+    display: block;
     color: black;
+    height: 100%;
+    width: 100%;
     text-decoration: none;
-    padding: 15px;
+    padding: 25px 15px;
 }
 
 .menu-icon{

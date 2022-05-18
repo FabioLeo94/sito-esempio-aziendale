@@ -15,6 +15,7 @@
     <link rel="stylesheet" href="/styling/navbar.css/navbar.css">
     <link rel="stylesheet" href="/styling/homepage.css" />
     <link rel="stylesheet" href="/styling/general.css" />
+    <link rel="stylesheet" href="/styling/footer.css" />
     <title>Unbelivable Places™</title>
 </head>
 <body>
@@ -133,26 +134,8 @@
         <!-- END IMAGE DESCRIPTIONS -->
     </div>
     <footer>
-        <script src="/scripts/index.js"></script>
-        <script>
-            let cards = document.querySelectorAll("[class*='hiking-']>[class*='container-']");
-            let delay = window.screen.availHeight - 50;
-            setInterval(() => {
-                cards.forEach((el, id) => {
-                    let bounds = el.getBoundingClientRect();
-                    if (bounds.top > delay && (id % 2 !== 0)) {
-                        el.style.transform = "translateX(100vw)";
-                    }
-                    else if (bounds.top > delay && (id % 2 === 0)) {
-                        el.style.transform = "translateX(-100vw)"
-                    }
-                    else {
-                        el.style.transform = "translateX(0px)";
-                    }
-                })
-            }, 10)
-
-        </script>
+        <script src="/scripts/homepage_cards_slide.js"></script>
+        <script src="/scripts/sidemenu.js"></script>
         <div>
             <p>Copyright&copy; <time>
                     <script>document.querySelector("time").innerHTML = new Date().getFullYear()</script>
