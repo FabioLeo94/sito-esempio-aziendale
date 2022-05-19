@@ -1,21 +1,30 @@
 const articles = document.body.querySelector("#article-container");
 const chartItemsContainer = document.querySelector(".chart-items");
+const totalPrice = document.querySelector("#chart-total-price");
 
 let articlesPath = "/resources/shop_article/";
 let articlesList = [
-    [1, articlesPath + "backpack1.png", "A backpack", "100€", Math.floor(Math.random() * 20)],
-    [2, articlesPath + "backpack2.png", "A backpack", "200€", Math.floor(Math.random() * 20)],
-    [3, articlesPath + "backpack3.png", "A backpack", "1000€", Math.floor(Math.random() * 20)]
+    [0, articlesPath + "backpack1.png", "A backpack", "100€", Math.floor(Math.random() * 20)],
+    [1, articlesPath + "backpack2.png", "A backpack", "200€", Math.floor(Math.random() * 20)],
+    [2, articlesPath + "backpack3.png", "A backpack", "1000€", Math.floor(Math.random() * 20)]
 ];
 
 let myChart = [];
+let myChartEl = [];
 
 window.onload = () => {
+    let test = document.createElement("button");
+    test.setAttribute("onclick", "test()");
+    test.innerHTML = "TESTTT";
+    document.body.appendChild(test);
     articlesList.forEach(el => {
         articlesBuilder(el[0], el[1], el[2], el[3], el[4])
     });
 }
 
+function test() {
+    console.log(myChart);
+}
 // SHOP ARTICLE BUILDER
 function articlesBuilder(articleId, imgUrl, articleName, articlePrice, avaliblePiece) {
     // CREATING ELEMENTS FOR THE ROW
@@ -88,68 +97,112 @@ function articlePopupBuilder(articleId) {
     return result;
 }
 
-// QUICK BUY BUTTON
+//CHART ROW FINDER
+function currentRow(id) {
+    const res = document.querySelector(`.chart-items tr[identifier-chart="${id.toString()}"]`);
+    return res;
+}
+
+//CHART ROW ITEM-AMOUNT FINDER
+function currentRowAmount(id) {
+    const res = document.querySelector(`.chart-items tr td input[identifier-amount="${id.toString()}"]`);
+    return res;
+}
+
+//[RETURN] CURRENT myChart ITEM
+function findMyChartItem(id) {
+    return myChart.forEach(val => {
+        val[0] === parseInt(id);
+    })
+}
+
+//[DELETE] CURRENT myChart ITEM
+function currentMyChartItem(id) {
+    return myChart.forEach(val => {
+        if (val[0] === parseInt(id)) {
+            myChart.splice(val, 1);
+        }
+    });
+}
+//[DELETE] CURRENT myChartEl ITEM
+function currentMyChartElItem(id) {
+    return myChartEl.forEach(val => {
+        if (val[0] === parseInt(id)) {
+            myChartEl.splice(val, 1);
+        }
+    });
+}
+
+//BUY BUTTON
 function buyBtn(e) {
     e.stopPropagation();
-    let currentId = e.currentTarget.getAttribute("identifier") - 1;
-    let currentArticle = [] = articlesList[currentId]
-    console.log("BUTTON: ",currentArticle);
-    if (currentArticle[4] === 0) {
-        return;
+    let currentId = e.currentTarget.getAttribute("identifier");
+
+    if (myChart.find(val => val[0] === parseInt(currentId)) === undefined) {
+        myChart.push(articlesList[currentId]);
+        myChart.find(val => {
+            if (val[0] === parseInt(currentId)) {
+                val[5] = 1;
+            };
+        });
+    } else {
+        myChart.find(val => {
+            if (val[0] === parseInt(currentId) && val[5] >= 10) {
+                return;
+            }
+            if (val[0] === parseInt(currentId)) {
+                val[5]++;
+                currentRowAmount(currentId).value++;
+            }
+        })
     }
-    if (myChart.includes(articlesList[currentId])) {
-        amountUpdate(currentId, 1);
-        return;
-    }
-    
-    currentArticle.push(1);
-    myChart.push(currentArticle);
-    // console.log(currentArticle);
-    
-    chartItemsBuilder(currentArticle[0], currentArticle[2], currentArticle[3], currentArticle[currentArticle.length - 1])
+    chartArrayBuilder();
 }
 
 // AMOUNT UPDATER
-function amountUpdate(id = "", amount = 0) {
-    strId = id.toString();
-    if (!myChart.includes(articlesList[strId])) {
-        return;
-    }
-
-    totalPrice()
-
-    const amountInput = document.querySelector(`tr[identifier-chart="${id+1}"] .item-amount`);
-
-    if (amountInput.value >= parseInt(amountInput.getAttribute("max"))) { return; } //IF AMOUNT IS MAX THE VALUE DOESN'T INCREASE
-    let theArticle = myChart.find(val => val === articlesList[strId]);
-    theArticle[theArticle.length - 1] += 1;
-    amountInput.value = theArticle[theArticle.length - 1];
-
-}
-
-// TOTAL PRICE AMOUNT
-function totalPrice() {
-    if (myChart.length < 0){console.log("ERRORE: Non ci sono items nel carrello"); return;}
-    let amountList = [];
-    let total = 0;
-    myChart.forEach(val => amountList.push(val[5]));
-    amountList.forEach(num => total += num);
-    console.log(total);
+function buttonAmountUpdate(id = "", amount = 0) {
+    if (currentRowAmount(id).value >= 10) { return; }
+    currentRowAmount(id).value++;
 }
 
 //AMOUNT UPDATER FROM INPUT
 function inputAmountUpdate(e) {
-    let currentArticleId = e.currentTarget.getAttribute("identifier-amount");
-    const currentRow = document.querySelector(`tr[identifier-chart="${currentArticleId}"]`);
+    let currentId = e.currentTarget.getAttribute("identifier-amount");
     let currentValue = parseInt(e.currentTarget.value);
-    if (currentValue < 1) { //IF AMOUNT GO UNDER 1 THE ARTICLE WILL BE REMOVED FROM THE CHART
-        currentRow.remove();
-        myChart.splice(parseInt(currentArticleId) - 1, 1);
+    if (currentValue < 1) {
+        myChart.forEach((val, index) => {
+            if (val[0] === parseInt(currentId)) {
+                myChart.splice(index, 1);
+                chartArrayBuilder();
+                return;
+            }
+        })
+        chartArrayBuilder();
         return;
-    }else{
-        console.log("TROVA L'ERRORE: " , currentArticleId);
-        myChart[parseInt(currentArticleId) - 1][5] = currentValue;
     }
+    myChart.forEach(val => {
+        if (val[0] === parseInt(currentId)) {
+            val[5] = currentValue;
+        }
+        let amount = 0;
+        myChart.forEach(el => {
+            // chartItemsContainer.appendChild(chartItemsBuilder(el[0], el[2], el[3], el[5]));
+            amount += (parseInt(el[3]) * parseInt(el[5]));
+        });
+        totalPrice.innerHTML = `Total: ${amount.toLocaleString()}€`;
+    })
+}
+
+// DELETE ITEM FROM CHART
+function deleteChartItem(e) {
+    let currentId = parseInt(e.currentTarget.getAttribute("identifier-amount"));
+    myChart.forEach((val, index) => {
+        if (val[0] === parseInt(currentId)) {
+            myChart.splice(index, 1);
+        }
+    })
+    chartArrayBuilder();
+    return;
 }
 
 // CHART ITEM BUILDER
@@ -160,6 +213,8 @@ function chartItemsBuilder(id, name, price, amount) {
     let newTdName = document.createElement("td");
     let newTdPrice = document.createElement("td");
     let newTdAmount = document.createElement("td");
+    let newTdDeleteBtn = document.createElement("td");
+    let newDeleteBtnImg = document.createElement("img");
 
     // NEW CHART ELEMENTS
     let newAmountNum = document.createElement("input");
@@ -170,10 +225,18 @@ function chartItemsBuilder(id, name, price, amount) {
     newAmountNum.setAttribute("max", "10");
     newAmountNum.setAttribute("oninput", "inputAmountUpdate(event)");
     newAmountNum.setAttribute("class", "item-amount");
+    // newAmountNum.setAttribute("readOnly", "");
     newAmountNum.setAttribute("identifier-amount", id)
+
+    newDeleteBtnImg.setAttribute("src", "/resources/icons/red-cross.png");
+    newDeleteBtnImg.setAttribute("alt", "red cross");
+    newDeleteBtnImg.setAttribute("title", "Rimuovi questo articolo dalla lista.");
+    newDeleteBtnImg.setAttribute("identifier-amount", id)
+    newDeleteBtnImg.setAttribute("onclick", "deleteChartItem(event)");
 
     // STYLING
     newAmountNum.style.width = "60px";
+    newDeleteBtnImg.style.width = "20px";
 
     // ROW IDENTIFIER
     newTr.setAttribute("identifier-chart", id);
@@ -190,6 +253,22 @@ function chartItemsBuilder(id, name, price, amount) {
     newTr.appendChild(newTdPrice);
     newTr.appendChild(newTdAmount);
     newTdAmount.appendChild(newAmountNum);
-    chartItemsContainer.appendChild(newTr);
-    console.log(newTr)
+    newTr.appendChild(newTdDeleteBtn);
+    newTdDeleteBtn.appendChild(newDeleteBtnImg);
+    return newTr;
+}
+
+/* 
+Il ChartArrayBuilder oltre a costruire la struttura del carrello, calcola anche
+il totale della somma degli oggetti al suo interno.
+*/
+function chartArrayBuilder() {
+    chartItemsContainer.innerHTML = "";
+    totalPrice.innerHTML = "";
+    let amount = 0;
+    myChart.forEach(el => {
+        chartItemsContainer.appendChild(chartItemsBuilder(el[0], el[2], el[3], el[5]));
+        amount += (parseInt(el[3]) * parseInt(el[5]));
+    });
+    totalPrice.innerHTML = `Total: ${amount.toLocaleString()}€`;
 }
