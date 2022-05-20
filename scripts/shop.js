@@ -6,7 +6,9 @@ let articlesPath = "/resources/shop_article/";
 let articlesList = [
     [0, articlesPath + "backpack1.png", "A backpack", "100€", Math.floor(Math.random() * 20)],
     [1, articlesPath + "backpack2.png", "A backpack", "200€", Math.floor(Math.random() * 20)],
-    [2, articlesPath + "backpack3.png", "A backpack", "1000€", Math.floor(Math.random() * 20)]
+    [2, articlesPath + "backpack3.png", "A backpack", "1000€", Math.floor(Math.random() * 20)],
+    [3, articlesPath + "backpack4.png", "A backpack", "1000€", Math.floor(Math.random() * 20)],
+    [4, articlesPath + "backpack5.png", "A backpack", "1000€", Math.floor(Math.random() * 20)],
 ];
 
 let myChart = [];
@@ -20,10 +22,12 @@ window.onload = () => {
     articlesList.forEach(el => {
         articlesBuilder(el[0], el[1], el[2], el[3], el[4])
     });
+    chartArrayBuilder();
 }
 
 function test() {
     console.log(myChart);
+    chartItemsCheck();
 }
 // SHOP ARTICLE BUILDER
 function articlesBuilder(articleId, imgUrl, articleName, articlePrice, avaliblePiece) {
@@ -97,40 +101,10 @@ function articlePopupBuilder(articleId) {
     return result;
 }
 
-//CHART ROW FINDER
-function currentRow(id) {
-    const res = document.querySelector(`.chart-items tr[identifier-chart="${id.toString()}"]`);
-    return res;
-}
-
 //CHART ROW ITEM-AMOUNT FINDER
 function currentRowAmount(id) {
     const res = document.querySelector(`.chart-items tr td input[identifier-amount="${id.toString()}"]`);
     return res;
-}
-
-//[RETURN] CURRENT myChart ITEM
-function findMyChartItem(id) {
-    return myChart.forEach(val => {
-        val[0] === parseInt(id);
-    })
-}
-
-//[DELETE] CURRENT myChart ITEM
-function currentMyChartItem(id) {
-    return myChart.forEach(val => {
-        if (val[0] === parseInt(id)) {
-            myChart.splice(val, 1);
-        }
-    });
-}
-//[DELETE] CURRENT myChartEl ITEM
-function currentMyChartElItem(id) {
-    return myChartEl.forEach(val => {
-        if (val[0] === parseInt(id)) {
-            myChartEl.splice(val, 1);
-        }
-    });
 }
 
 //BUY BUTTON
@@ -156,14 +130,10 @@ function buyBtn(e) {
             }
         })
     }
+
     chartArrayBuilder();
 }
 
-// AMOUNT UPDATER
-function buttonAmountUpdate(id = "", amount = 0) {
-    if (currentRowAmount(id).value >= 10) { return; }
-    currentRowAmount(id).value++;
-}
 
 //AMOUNT UPDATER FROM INPUT
 function inputAmountUpdate(e) {
@@ -233,6 +203,8 @@ function chartItemsBuilder(id, name, price, amount) {
     newDeleteBtnImg.setAttribute("title", "Rimuovi questo articolo dalla lista.");
     newDeleteBtnImg.setAttribute("identifier-amount", id)
     newDeleteBtnImg.setAttribute("onclick", "deleteChartItem(event)");
+    newDeleteBtnImg.style.userSelect = "none";
+    newDeleteBtnImg.ondragstart = (e)=>{e.preventDefault()};
 
     // STYLING
     newAmountNum.style.width = "60px";
@@ -266,9 +238,21 @@ function chartArrayBuilder() {
     chartItemsContainer.innerHTML = "";
     totalPrice.innerHTML = "";
     let amount = 0;
-    myChart.forEach(el => {
-        chartItemsContainer.appendChild(chartItemsBuilder(el[0], el[2], el[3], el[5]));
-        amount += (parseInt(el[3]) * parseInt(el[5]));
-    });
-    totalPrice.innerHTML = `Total: ${amount.toLocaleString()}€`;
+    // CONTROLLA SE myChart CONTIENE QUALCOSA
+    if (myChart.length === 0) {
+        let newCell = document.createElement("td");
+        newCell.setAttribute("colspan", "4")
+        newCell.style.border = "1px solid black"
+        newCell.style.textAlign = "center";
+        newCell.innerHTML = "The chart is empty!";
+        chartItemsContainer.appendChild(newCell);
+        totalPrice.innerHTML = `Total: ${amount.toLocaleString()}€`;
+        return;
+    }else{
+        myChart.forEach(el => {
+            chartItemsContainer.appendChild(chartItemsBuilder(el[0], el[2], el[3], el[5]));
+            amount += (parseInt(el[3]) * parseInt(el[5]));
+        });
+        totalPrice.innerHTML = `Total: ${amount.toLocaleString()}€`;
+    }
 }
