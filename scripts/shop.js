@@ -4,11 +4,30 @@ const totalPrice = document.querySelector("#chart-total-price");
 
 let articlesPath = "/resources/shop_article/";
 let articlesList = [
-    [0, articlesPath + "backpack1.png", "A backpack", "100€", Math.floor(Math.random() * 20)],
-    [1, articlesPath + "backpack2.png", "A backpack", "200€", Math.floor(Math.random() * 20)],
-    [2, articlesPath + "backpack3.png", "A backpack", "1000€", Math.floor(Math.random() * 20)],
-    [3, articlesPath + "backpack4.png", "A backpack", "1000€", Math.floor(Math.random() * 20)],
-    [4, articlesPath + "backpack5.png", "A backpack", "1000€", Math.floor(Math.random() * 20)],
+    [0, articlesPath + "backpack1.png", "\"Big Banana\" v3000 ", Math.floor(Math.random()*1000).toString() + "€", Math.floor(Math.random() * 20)],
+    [1, articlesPath + "backpack2.png", "\"DrugDealer\" essentials", Math.floor(Math.random()*1000).toString() + "€", Math.floor(Math.random() * 20)],
+    [2, articlesPath + "backpack3.png", "\"Toilet\" red version", Math.floor(Math.random()*1000).toString() + "€", Math.floor(Math.random() * 20)],
+    [3, articlesPath + "backpack4.png", "\"IperDick\" X03VH2", Math.floor(Math.random()*1000).toString() + "€", Math.floor(Math.random() * 20)],
+    [4, articlesPath + "backpack5.png", "\"Wanker Ranger\" noobs model", Math.floor(Math.random()*1000).toString() + "€", Math.floor(Math.random() * 20)],
+    [5, articlesPath + "camping_tent1.png", "\"Happy Homeless\"", Math.floor(Math.random()*1000).toString() + "€", Math.floor(Math.random() * 20)],
+    [6, articlesPath + "camping_tent2.png", "\"Big-Wreck\" condominium size", Math.floor(Math.random()*1000).toString() + "€", Math.floor(Math.random() * 20)],
+    [7, articlesPath + "camping_tent3.png", "\"Green House\" skyscraper size", Math.floor(Math.random()*1000).toString() + "€", Math.floor(Math.random() * 20)],
+    [8, articlesPath + "camping_tent4.png", "\"Brainless hut\"", Math.floor(Math.random()*1000).toString() + "€", Math.floor(Math.random() * 20)],
+    [9, articlesPath + "canteen1.png", "\"Glù Glù\" red version", Math.floor(Math.random()*1000).toString() + "€", Math.floor(Math.random() * 20)],
+    [10, articlesPath + "canteen2.png", "\"Back To Wank\" with your EX picture!", Math.floor(Math.random()*100).toString() + "€", Math.floor(Math.random() * 20)],
+    [11, articlesPath + "canteen3.png", "\"Blue Cistern\" camel size", Math.floor(Math.random()*1000).toString() + "€", Math.floor(Math.random() * 20)],
+    [12, articlesPath + "carabiner1.png", "\"Clik-clack\" carabiner", Math.floor(Math.random()*1000).toString() + "€", Math.floor(Math.random() * 20)],
+    [13, articlesPath + "carabiner2.png", "\"Double clik-clack\" for mor click-clack sitation", Math.floor(Math.random()*1000).toString() + "€", Math.floor(Math.random() * 20)],
+    [14, articlesPath + "carabiner3.png", "\"Azure Click\" now without clack!", Math.floor(Math.random()*1000).toString() + "€", Math.floor(Math.random() * 20)],
+    [15, articlesPath + "carabiner4.png", "\"Cliiiiick-Claaaaack\" longest version!", Math.floor(Math.random()*1000).toString() + "€", Math.floor(Math.random() * 20)],
+    [16, articlesPath + "climbing_harness1.png", "\"kentflay\" harness for climbing", Math.floor(Math.random()*1000).toString() + "€", Math.floor(Math.random() * 20)],
+    [17, articlesPath + "climbing_harness2.png", "\"Big Horny\" ultimate climbing harness version", Math.floor(Math.random()*1000).toString() + "€", Math.floor(Math.random() * 20)],
+    [18, articlesPath + "ice_axe1.png", "\"Chap-chap\"", Math.floor(Math.random()*1000).toString() + "€", Math.floor(Math.random() * 20)],
+    [19, articlesPath + "rope1.png", "\"Nice Falling\" climbing rope", Math.floor(Math.random()*1000).toString() + "€", Math.floor(Math.random() * 20)],
+    [20, articlesPath + "rope2.png", "\"Kidnapper\" hight resistence", Math.floor(Math.random()*1000).toString() + "€", Math.floor(Math.random() * 20)],
+    [21, articlesPath + "rope3.png", "\"Gallows\" 10 dishwashers longer!!", Math.floor(Math.random()*1000).toString() + "€", Math.floor(Math.random() * 20)],
+    [22, articlesPath + "rope4.png", "\"Viper's cuddler\" for fearless people", Math.floor(Math.random()*1000).toString() + "€", Math.floor(Math.random() * 20)],
+    [23, articlesPath + "water_bottle1.png", "\"Nasty Bottle\" for medieval people", Math.floor(Math.random()*1000).toString() + "€", Math.floor(Math.random() * 20)],
 ];
 
 let myChart = [];
@@ -27,8 +46,8 @@ window.onload = () => {
 
 function test() {
     console.log(myChart);
-    chartItemsCheck();
 }
+
 // SHOP ARTICLE BUILDER
 function articlesBuilder(articleId, imgUrl, articleName, articlePrice, avaliblePiece) {
     // CREATING ELEMENTS FOR THE ROW
