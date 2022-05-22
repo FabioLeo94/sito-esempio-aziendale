@@ -5,12 +5,15 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
     <link rel="icon" type="image/x-icon" href="#">
+
     <link rel="stylesheet" href="/styling/navbar.css/navbar.css">
     <link rel="stylesheet" href="/styling/general.css" />
-    <link rel="stylesheet" href="/styling/shop.css" />
     <link rel="stylesheet" href="/styling/footer.css" />
-    <title>Unbelivable Places™</title>
+    <link rel="stylesheet" href="/styling/our-explorations.css" />
+
+    <title>Unbelivable Places&trade; - Our Explorations</title>
 </head>
 
 <body>
@@ -41,68 +44,26 @@
             </ul>
         </section>
     </header>
-    <!-- INIZIO SHOP -->
-    <section class="shop-body">
-        <div class="shop-title-container">
-            <h1 class="shop-title">UNBELIVABLE SHOP&trade;</h1>
-        </div>
-        <section class="ecommerce-body">
-            <div class="ecommerce-upper-bar">
-                <input type="text" name="search" id="search" placeholder="Find..." title="What you need to find?">
-                <select id="shop-item-range" title="Records to show">
-                    <option value="10">10</option>
-                    <option value="50">50</option>
-                    <option value="100">100</option>
-                    <option value="all">all</option>
-                </select>
-            </div>
-            <table>
-                <thead>
-                    <tr>
-                        <th>Id</th>
-                        <th>Photo</th>
-                        <th>Name</th>
-                        <th>Price €</th>
-                        <th>Avalible</th>
-                        <th>Buy</th>
-                    </tr>
-                </thead>
-                <tbody id="article-container">
-                </tbody>
-                <tfoot>
-                </tfoot>
-            </table>
+    <!-- INIZIO CONTENUTO -->
+    <div class="title-container">
+        <h1 class="title">Unbelivable places&trade;</h1>
+    </div>
+    <section class="content-container">
+        <section class="cards-container">
+            <section class="exp-full-content">
+                TEEEEEEEEEEEEEEEEEEEEEEEST
+            </section>
         </section>
-        <div class="chart-panel">
-            <p class="chart-title">YOUR CHART</p>
-            <table>
-                <thead>
-                    <tr>
-                        <th>Id</th>
-                        <th>Name</th>
-                        <th>Price</th>
-                        <th>Amount</th>
-                    </tr>
-                </thead>
-                <tbody class="chart-items">
-                </tbody>
-                <tfoot>
-                </tfoot>
-            </table>
-            <div class="chart-total-price-container">
-                <p id="chart-total-price"> Total: 0€</p>
-            </div>
-        </div>
     </section>
-    <!-- FINE SHOP -->
+    <!-- INIZIO FOOTER -->
     <footer>
         <script src="/scripts/sidemenu.js"></script>
-        <script src="/scripts/shop.js"></script>
         <div>
             <p>Copyright&copy; <time>
                     <script>document.querySelector("time").innerHTML = new Date().getFullYear()</script>
                 </time></p>
         </div>
+        <script src="/scripts/our_exploration.js"></script>
     </footer>
 </body>
 
