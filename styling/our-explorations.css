@@ -18,7 +18,9 @@ body {
     width: 100%;
 }
 body .content-container {
-    display: block;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
     margin: 0 50px;
     position: relative;
     /* overflow: hidden; */
@@ -34,7 +36,7 @@ user-select: none;
     flex-wrap: wrap;
     justify-content: space-around;
     background-color: rgba(175, 149, 79, 0.459);
-    width: 100%;
+    width: calc(100% - 100px);
     border: 3px solid black;
     border-radius: 5px;
     padding: 20px;
@@ -82,7 +84,16 @@ user-select: none;
     display: none;
     height: 0px;
     overflow: hidden;
-    transition: all 1s ease;
     background-color: blanchedalmond;
     border: 3px solid black;
+    position: relative;
+    width: calc(100% - 100px);
+
+}
+
+.content-container .exp-full-content button{
+    background-color: rgb(0, 0, 0);
+    color: white;
+    border: 2px solid rgb(102, 102, 102);
+    box-shadow: 0 0 4px rgba(0, 0, 0, 0.6);
 }

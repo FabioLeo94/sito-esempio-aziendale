@@ -1,4 +1,5 @@
 body {
+    width: 100%;
     background-image: url("/resources/images/forest.jpg");
     background-repeat: no-repeat;
     background-position: center;

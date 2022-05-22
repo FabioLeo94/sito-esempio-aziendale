@@ -69,28 +69,22 @@ function fullDescriptionBuilder(id) {
     fullDescriptionContainer.innerHTML = "";
 
     if (currentCard === parseInt(id)) {
-        fullDescriptionView = false;
-        currentCard = NaN;
-        fullDescriptionContainer.style.display = "none";
-        fullDescriptionContainer.innerHTML = "";
-        cardsContainer.style.flexWrap = "wrap";
-
-        cardsContainer.style.height = "max-content";
-        cardsContainer.style.justifyContent = "";
-
-        document.querySelectorAll(".exploration-card").forEach(el => {
-            el.style.height = "";
-            el.style.width = "";
-            el.style.overflowY = "";
-            el.style.overflowX = "";
-            el.style.margin = "10px 0";
-        })
+        fullDescClose();
         return;
     }
 
     let img = document.createElement("img");
     let par = document.createElement("p");
     let title = document.createElement("p");
+    let button = document.createElement("button");
+
+    button.style.width = "100px";
+    button.style.position = "absolute";
+    button.style.right = "10px";
+    button.style.top = "10px";
+    button.innerHTML = "Close";
+
+    button.setAttribute("onclick", "fullDescClose()");
 
     title.innerHTML = cards[id][3];
     title.style.fontWeight = "bolder";
@@ -108,15 +102,19 @@ function fullDescriptionBuilder(id) {
     par.style.margin = "25px";
     par.style.hyphens = "auto";
     par.style.textAlign = "justify";
+    par.style.fontSize = "18px";
+
     // SETTING UP FULL-DESCRIPTION-PANEL AND STYLING CARDS-CONTAINERS AND CARDS
     fullDescriptionView = true;
     currentCard = parseInt(id);
 
+    fullDescriptionContainer.appendChild(button);
     fullDescriptionContainer.appendChild(title);
     fullDescriptionContainer.appendChild(img);
     fullDescriptionContainer.appendChild(par);
-    fullDescriptionContainer.style.height = "100%";
     par.innerHTML = cards[id][5];
+
+    fullDescriptionContainer.style.height = "100%";
     fullDescriptionContainer.style.display = "block";
 
     cardsContainer.style.height = "fit-content";
@@ -130,6 +128,36 @@ function fullDescriptionBuilder(id) {
         el.style.overflowY = "hidden";
         el.style.overflowX = "hidden";
         el.style.margin = "0";
+        if(el.getAttribute("identifier") == parseInt(id)){
+            el.style.backgroundColor = "rgb(53, 56, 199)";
+            el.style.color = "white";
+        }else{
+            el.style.backgroundColor = "";
+            el.style.color = "";
+
+        }
     })
 
+}
+
+function fullDescClose(){
+    fullDescriptionView = false;
+    currentCard = NaN;
+    fullDescriptionContainer.style.display = "none";
+    fullDescriptionContainer.innerHTML = "";
+    cardsContainer.style.flexWrap = "wrap";
+
+    cardsContainer.style.height = "max-content";
+    cardsContainer.style.justifyContent = "";
+
+    document.querySelectorAll(".exploration-card").forEach(el => {
+        el.style.height = "";
+        el.style.width = "";
+        el.style.overflowY = "";
+        el.style.overflowX = "";
+        el.style.backgroundColor = ""
+        el.style.color = "";
+        el.style.margin = "10px 0";
+    })
+    return;
 }
