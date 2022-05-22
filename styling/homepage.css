@@ -5,6 +5,7 @@ body {
     background-size: cover;
     background-clip: content-box;
     background-attachment: fixed;
+    position: absolute;
 }
 
 /* FIRST SECTION HOMEPAGE */
