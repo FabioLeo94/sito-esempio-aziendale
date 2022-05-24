@@ -34,18 +34,10 @@ let myChart = [];
 let myChartEl = [];
 
 window.onload = () => {
-    let test = document.createElement("button");
-    test.setAttribute("onclick", "test()");
-    test.innerHTML = "TESTTT";
-    document.body.appendChild(test);
     articlesList.forEach(el => {
         articlesBuilder(el[0], el[1], el[2], el[3], el[4])
     });
     chartArrayBuilder();
-}
-
-function test() {
-    console.log(myChart);
 }
 
 // SHOP ARTICLE BUILDER

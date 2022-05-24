@@ -1,0 +1,133 @@
+body {
+    width: 100%;
+    position: absolute;
+    background-image: url("/resources/images/courtnie-tosana-brqqSBSXPac-unsplash.jpg");
+    background-position: top right;
+    background-attachment: fixed;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+.title-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(80, 80, 80, 0.4);
+    margin: 20px auto;
+    border-top: 3px solid black;
+    border-bottom: 3px solid black;
+}
+.title {
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    font-size: 70px;
+    color: rgb(194, 168, 255);
+    text-shadow: 0 0 3px black, 0 0 5px black;
+    margin: 10px auto;
+}
+.content-body {
+    display: flex;
+    justify-content: center;
+    max-width: calc(100% - 300px);
+    min-width: fit-content;
+    margin: 50px auto;
+}
+.content-body form {
+    background-color: rgba(0, 0, 0, 0.7);
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    align-items: flex-start;
+    width: 500px;
+    border: 2px solid rgba(255, 208, 0, 0.733);
+    border-right: 1px solid rgba(255, 208, 0, 0.733);
+
+    padding: 30px;
+}
+.content-body form label {
+    color: rgb(255, 235, 52);
+    font-size: 18px;
+    justify-content: end;
+}
+.content-body form input,
+textarea {
+    border: none;
+    background-color: rgba(110, 78, 42, 0);
+    color: white;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+}
+.content-body form input {
+    width: 250px;
+    font-size: 18px;
+    border-bottom: 2px solid rgb(0, 0, 0);
+
+}
+.content-body form textarea {
+    margin-top: 10px;
+    resize: none;
+    width: 100%;
+    border: 2px solid rgba(255, 230, 0, 0.548);
+}
+.content-body form .button {
+    justify-self: center;
+    border: 2px solid black;
+    margin: 20px;
+    background-color: rgb(214, 198, 110);
+    width: 150px;
+    height: 30px;
+    color: black;
+    font-size: 20px;
+    align-self: center;
+    cursor: pointer;
+}
+
+input:focus,
+select:focus,
+textarea:focus,
+button:focus {
+    outline: none;
+}
+
+.content-body form>div{
+    display: flex;
+    width: 100%;
+    height: fit-content;
+    align-content: flex-end;
+    justify-content: flex-start;
+    gap: 10px;
+    margin: 5px 0;
+    
+}
+
+.content-body form .button-container{
+    justify-content: center;
+    position: relative;
+}
+
+.some-text-panel{
+    display: flex;
+    flex-direction: column;
+    color: rgb(219, 176, 83);
+    background-color: rgba(0, 0, 0, 0.7);
+    max-width: 500px;
+    border-top: 2px solid rgba(255, 208, 0, 0.733);
+    border-right: 2px solid rgba(255, 208, 0, 0.733);
+    border-bottom: 2px solid rgba(255, 208, 0, 0.733);
+
+}
+
+.some-text-panel h1{
+    margin: 10px 0;
+    padding: 0;
+    text-align: center;
+}
+
+.some-text-panel img{
+    width: 250px;
+    align-self: center;
+}
+
+.some-text-panel p{
+    hyphens: auto;
+    text-align: justify;
+    padding: 15px;
+}

@@ -25,6 +25,11 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
+    background-color: rgba(80, 80, 80, 0.4);
+    margin: 20px auto;
+    border-top: 3px solid black;
+    border-bottom: 3px solid black;
+    width: 100%;
 }
 .shop-body .shop-title-container .shop-title {
     text-align: center;
@@ -32,11 +37,11 @@ body {
     font-size: 70px;
     color: rgb(194, 168, 255);
     text-shadow: 0 0 3px black, 0 0 5px black;
-    margin: 30px auto;
-    background-color: rgba(255, 255, 255, 0.274);
+    margin: 10px auto;
+    /* background-color: rgba(255, 255, 255, 0.274); */
     width: 100vw;
-    border-top: 2px solid black;
-    border-bottom: 2px solid black;
+    /* border-top: 2px solid black;
+    border-bottom: 2px solid black; */
     min-width: max-content;
 }
 /* ECOMMERCE BODY*/
