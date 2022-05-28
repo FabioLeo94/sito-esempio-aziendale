@@ -96,7 +96,7 @@ function fullDescriptionBuilder(id) {
     img.setAttribute("alt", cards[id][2]);
     img.style.width = "400px";
     img.style.float = "left";
-    img.style.margin = "30px 20px 0px 20px";
+    img.style.margin = "20px";
     img.style.border = "3px solid black";
 
     par.style.margin = "25px";

@@ -1,7 +1,7 @@
 body {
-    position: absolute;
+    position: relative;
     width: 100%;
-    height: max-content;
+    height: 100%;
     background-image: url("/resources/images/exploration-bg.jpg");
     background-size: cover;
     background-repeat: no-repeat;

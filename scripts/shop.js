@@ -1,6 +1,7 @@
 const articles = document.body.querySelector("#article-container");
 const chartItemsContainer = document.querySelector(".chart-items");
 const totalPrice = document.querySelector("#chart-total-price");
+const ecommerceBody = document.querySelector(".ecommerce-body");
 
 let articlesPath = "/resources/shop_article/";
 let articlesList = [
@@ -35,8 +36,11 @@ let myChartEl = [];
 
 window.onload = () => {
     articlesList.forEach(el => {
-        articlesBuilder(el[0], el[1], el[2], el[3], el[4])
+        articlesBuilder(el[0], el[1], el[2], el[3], el[4]);
+        mobileArticleBuilder(el[0], el[1], el[2], el[3], el[4]);
     });
+    
+    //mobileArticleBuilder(articlesList[0][0], articlesList[0][1], articlesList[0][2], articlesList[0][3], articlesList[0][4]);
     chartArrayBuilder();
 }
 
@@ -266,4 +270,47 @@ function chartArrayBuilder() {
         });
         totalPrice.innerHTML = `Total: ${amount.toLocaleString()}€`;
     }
+}
+
+// FOR MOBILES
+function mobileArticleBuilder(id, imgUrl, itemName, price, avalible){
+    // CREATING TAGS FOR MOBILE LAYOUT
+    let container = document.createElement("div");
+    let itemDescContainer = document.createElement("div");
+    let itemTitle = document.createElement("p");
+    let itemImg = document.createElement("img");
+    let itemPrice = document.createElement("p");
+    let avalibleContainer = document.createElement("div");
+    let avalibleCount = document.createElement("p");
+    let buyButton = `<button class="quick-buy-btn" identifier="${id}""${parseInt(avalible) < 1 && ' disabled '}" style="user-select: none;" onclick="buyBtn(event)">Add</button>`;
+
+    // SETTING ATTRIBUTES
+    container.setAttribute("class", "item-container-mobile");
+    itemDescContainer.setAttribute("class", "item-desc-container-mobile");
+    itemTitle.setAttribute("class", "item-name-mobile")
+    itemTitle.innerHTML = itemName;
+
+    itemImg.setAttribute("class", "item-img-mobile")
+    itemImg.setAttribute("src", imgUrl);
+    itemImg.setAttribute("alt", itemName);
+
+    itemPrice.innerHTML = price;
+
+    avalibleContainer.setAttribute("class", "avalible-items-container-mobile");
+    avalibleCount.innerHTML = avalible === 0 ? "Unavalible!": ("Avalible: " + avalible);
+
+    // styling
+    avalible === 0 && (container.style.backgroundColor = "rgba(255, 124, 124, 0.9)");
+    // MOUNTING TAGS
+    avalibleContainer.appendChild(avalibleCount);
+    avalibleContainer.appendChild(itemPrice);
+    avalibleContainer.innerHTML += buyButton;
+
+    itemDescContainer.appendChild(itemTitle);
+    itemDescContainer.appendChild(itemImg);
+
+    container.appendChild(itemDescContainer);
+    container.appendChild(avalibleContainer);
+
+    ecommerceBody.appendChild(container);
 }
