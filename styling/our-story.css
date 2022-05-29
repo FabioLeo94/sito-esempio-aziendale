@@ -9,12 +9,23 @@ body{
     background-attachment: fixed;
 }
 
+body .title-container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(80, 80, 80, 0.4);
+    margin: 20px auto;
+    border-top: 3px solid black;
+    border-bottom: 3px solid black;
+    width: 100%;
+}
+
 .title {
     font-family: Georgia, 'Times New Roman', Times, serif;
     font-size: 70px;
     color: rgb(194, 168, 255);
     text-shadow: 0 0 3px black, 0 0 5px black;
-    margin: 30px auto;
+    margin: 10px auto;
     text-align: center;
     width: 100%;
 }

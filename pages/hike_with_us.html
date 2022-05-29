@@ -64,14 +64,14 @@
             </div>
             <div>
                 <label for="telephone">Telephone:</label>
-                <input type="tel" name="telephone" id="telephone" placeholder="+39 000 000 0000">
+                <input type="tel" name="telephone" id="telephone" placeholder="+1 000 000 0000" onkeypress="return onlyNumbers(event)">
             </div>
 
             <textarea name="message" id="message" cols="30" rows="10"
                 placeholder="Write here your message..."></textarea>
             <div class="button-container">
                 <input class="button" type="submit" id="submit-btn" value="Send">
-                <input class="button" type="button" id="reset-btn" value="Reset">
+                <input class="button" type="button" id="reset-btn" value="Clear">
             </div>
         </form>
         <div class="some-text-panel">
@@ -99,7 +99,7 @@
             const messageTxt = document.querySelector("#message");
             const confirmTxt = document.createElement("p");
             var confirmTimer;
-            confirmTxt.innerHTML = "Click again \"reset\" for confirmation!<br><u>(Operazione ireversibile!)</u>";
+            confirmTxt.innerHTML = "Click again \"clear\" for confirmation!<br><u>(Operazione ireversibile!)</u>";
             confirmTxt.style.color = "red";
             confirmTxt.style.position = "absolute";
             confirmTxt.style.top = "35px";
@@ -138,6 +138,23 @@
                 clearTimeout(confirmTimer);
                 confirmTimer = undefined;
                 resetBtn.style.backgroundColor = "";
+            }
+
+                /* 
+                Se non viene inserito un numero, annulla l'inserimento.
+                Se manca il "+" del prefisso, viene inserito automaticamente (ma non il prefisso).
+                */
+            function onlyNumbers(e){
+                // console.log(parseInt(e.key) ? true:false);
+                
+                if (!e.currentTarget.value && e.key == "+"){
+                    return true;
+                }
+                if(e.currentTarget.value[0] !== "+" && parseInt(e.key)){
+                    let newValue = "+" + e.currentTarget.value;
+                    e.currentTarget.value = newValue;
+                }
+                return parseInt(e.key) ? true:false;
             }
         </script>
         <div>

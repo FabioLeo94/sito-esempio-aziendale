@@ -293,6 +293,7 @@ function mobileArticleBuilder(id, imgUrl, itemName, price, avalible){
     itemImg.setAttribute("class", "item-img-mobile")
     itemImg.setAttribute("src", imgUrl);
     itemImg.setAttribute("alt", itemName);
+    itemImg.setAttribute("title", itemName);
 
     itemPrice.innerHTML = price;
 
