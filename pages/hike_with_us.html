@@ -49,31 +49,33 @@
         <h1 class="title">Unbelivable Places&trade;</h1>
     </div>
     <section class="content-body">
-        <form action="#" method="GET">
-            <div>
-                <label for="name">Name:</label>
-                <input type="text" name="name" id="name" placeholder="Your name...">
-            </div>
-            <div>
-                <label for="surname">Surname:</label>
-                <input type="text" name="surname" id="surname" placeholder="Your surname...">
-            </div>
-            <div>
-                <label for="email">Email:</label>
-                <input type="email" name="email" id="email" placeholder="example@email.ex">
-            </div>
-            <div>
-                <label for="telephone">Telephone:</label>
-                <input type="tel" name="telephone" id="telephone" placeholder="+1 000 000 0000" onkeypress="return onlyNumbers(event)">
-            </div>
-
-            <textarea name="message" id="message" cols="30" rows="10"
-                placeholder="Write here your message..."></textarea>
-            <div class="button-container">
-                <input class="button" type="submit" id="submit-btn" value="Send">
-                <input class="button" type="button" id="reset-btn" value="Clear">
-            </div>
-        </form>
+        <div class="form-container">
+            <form action="#" method="GET">
+                <div>
+                    <label for="name">Name</label>
+                    <input type="text" name="name" id="name" placeholder="Your name...">
+                </div>
+                <div>
+                    <label for="surname">Surname</label>
+                    <input type="text" name="surname" id="surname" placeholder="Your surname...">
+                </div>
+                <div>
+                    <label for="email">Email</label>
+                    <input type="email" name="email" id="email" placeholder="example@email.ex">
+                </div>
+                <div>
+                    <label for="telephone">Telephone</label>
+                    <input type="tel" name="telephone" id="telephone" placeholder="+1 000 000 0000" onkeypress="return onlyNumbers(event)">
+                </div>
+    
+                <textarea name="message" id="message" cols="30" rows="10"
+                    placeholder="Write here your message..."></textarea>
+                <div class="button-container">
+                    <input class="button" type="submit" id="submit-btn" value="Send">
+                    <input class="button" type="button" id="reset-btn" value="Clear">
+                </div>
+            </form>
+        </div>
         <div class="some-text-panel">
             <h1>Hike with us!</h1>
             <img src="/resources/images/camping_pic.jpg" alt="camping">
@@ -97,12 +99,11 @@
             const emailTxt = document.querySelector("#email");
             const telephoneTxt = document.querySelector("#telephone");
             const messageTxt = document.querySelector("#message");
+            const submitBtn = document.querySelector("#submit-btn");
             const confirmTxt = document.createElement("p");
             var confirmTimer;
-            confirmTxt.innerHTML = "Click again \"clear\" for confirmation!<br><u>(Operazione ireversibile!)</u>";
-            confirmTxt.style.color = "red";
-            confirmTxt.style.position = "absolute";
-            confirmTxt.style.top = "35px";
+            confirmTxt.innerHTML = "Click again \"clear\" for confirmation!<br><u>(Irreversible operation!)</u>";
+            confirmTxt.setAttribute("class", "clear-par");
 
             var confirmation = 0;
             resetBtn.onclick = () => {
@@ -111,7 +112,7 @@
                 if (!confirmTimer){
                     confirmTimer = setTimeout(timeoutExe, 5000);
                 }
-                resetBtn.style.backgroundColor = "red";
+                resetBtn.style.backgroundColor = "rgb(204, 37, 37)";
                     if (confirmation >= 2) {
                         nameTxt.value = "";
                         surnameTxt.value = "";
@@ -155,6 +156,17 @@
                     e.currentTarget.value = newValue;
                 }
                 return parseInt(e.key) ? true:false;
+            }
+
+            submitBtn.onclick = (e)=>{
+                e.preventDefault();
+                let alertTxt = "";
+                alertTxt += "Name: " + nameTxt.value + "\n";
+                alertTxt += "Surname: " + surnameTxt.value + "\n";
+                alertTxt += "Email: " + emailTxt.value + "\n";
+                alertTxt += "Tel: " + telephoneTxt.value + "\n";
+                alertTxt += "Message: \"" + messageTxt.value + "\"\n";
+                alert(alertTxt);
             }
         </script>
         <div>

@@ -118,7 +118,7 @@ header nav ul li a {
         left: 0;
         z-index: 9;
         background-color: rgba(0, 0, 0, 0.733);
-        transition: width 1s ease;
+        transition: width .5s ease;
     }
 
     .side-menu ul{
@@ -131,9 +131,10 @@ header nav ul li a {
 
     .side-menu ul li{
         cursor: pointer;
-        padding: 10px 0;
         border-bottom: 1px solid rgba(255, 255, 255, 0.445);
         transition: background-color .2s ease;
+        min-width: 300px;
+        display: block;
     }
 
     .side-menu ul li:hover{
@@ -144,7 +145,8 @@ header nav ul li a {
         display: block;
         color: white;
         text-decoration: none;
-        width: max-content;
+        width: 100%;
+        padding: 10px;
     }
 
     .nav-logo{

@@ -1,6 +1,7 @@
 // INITIALIZING GLOBAL VARIABLES AND SELECTORS
 const cardsContainer = document.querySelector(".cards-container");
 const fullDescriptionContainer = document.querySelector(".exp-full-content");
+const buttonContainer = document.querySelector(".buttons-container");
 
 const cardsList = [];
 var fullDescriptionView = false;
@@ -21,6 +22,7 @@ const cards = [
 window.onload = () => {
     cards.forEach(el => {
         cardsBuilder(el[0], el[1], el[2], el[3], el[4])
+        buttonBuilder(el[0], el[3]);
     });
     const cardsList = document.querySelectorAll(".exploration-card");
     cardsList.forEach(el => {
@@ -28,6 +30,7 @@ window.onload = () => {
             fullDescriptionBuilder(el.getAttribute("identifier"));
         }
     });
+    fullDescriptionContainer.style.display = "none";
 }
 
 // BUILDING CARDS FROM ARRAY DATAS
@@ -78,31 +81,19 @@ function fullDescriptionBuilder(id) {
     let title = document.createElement("p");
     let button = document.createElement("button");
 
-    button.style.width = "100px";
-    button.style.position = "absolute";
-    button.style.right = "10px";
-    button.style.top = "10px";
+    button.setAttribute("class", "full-desc-close-btn")
     button.innerHTML = "Close";
 
     button.setAttribute("onclick", "fullDescClose()");
 
     title.innerHTML = cards[id][3];
-    title.style.fontWeight = "bolder";
-    title.style.fontSize = "25px";
-    title.style.textAlign = "center";
-    title.style.margin = "10px 0";
-
+    title.setAttribute("class", "full-desc-title")
+    
+    img.setAttribute("class", "full-desc-img")
     img.setAttribute("src", cards[id][1]);
     img.setAttribute("alt", cards[id][2]);
-    img.style.width = "400px";
-    img.style.float = "left";
-    img.style.margin = "20px";
-    img.style.border = "3px solid black";
 
-    par.style.margin = "25px";
-    par.style.hyphens = "auto";
-    par.style.textAlign = "justify";
-    par.style.fontSize = "18px";
+    par.setAttribute("class", "full-desc-par")
 
     // SETTING UP FULL-DESCRIPTION-PANEL AND STYLING CARDS-CONTAINERS AND CARDS
     fullDescriptionView = true;
@@ -116,48 +107,57 @@ function fullDescriptionBuilder(id) {
 
     fullDescriptionContainer.style.height = "100%";
     fullDescriptionContainer.style.display = "block";
-
-    cardsContainer.style.height = "fit-content";
-    cardsContainer.style.flexWrap = "nowrap";
-    cardsContainer.style.justifyContent = "left";
-
-    document.querySelectorAll(".exploration-card").forEach(el => {
-        el.style.height = "50px";
-        el.style.width = "100%";
-        el.style.alignItems = "center";
-        el.style.overflowY = "hidden";
-        el.style.overflowX = "hidden";
-        el.style.margin = "0";
-        if(el.getAttribute("identifier") == parseInt(id)){
+    cardsContainer.style.display = "none";
+    buttonContainer.style.display = "flex";
+    buttonContainer.querySelectorAll("button").forEach(el =>{
+        if (el.getAttribute("identifier") == parseInt(id)) {
             el.style.backgroundColor = "rgb(53, 56, 199)";
             el.style.color = "white";
-        }else{
+        } else {
             el.style.backgroundColor = "";
             el.style.color = "";
-
         }
     })
-
+    document.querySelectorAll(".exploration-card").forEach(el => {
+        if (el.getAttribute("identifier") == parseInt(id)) {
+            el.style.backgroundColor = "rgb(53, 56, 199)";
+            el.style.color = "white";
+        } else {
+            el.style.backgroundColor = "";
+            el.style.color = "";
+        }
+    })
+    
+    if(window.scrollY > 300){
+        window.scrollTo(0,0);
+    }
 }
 
-function fullDescClose(){
+// FUNCTION THAT CLOSE THE FULL DESCRIPTION PANEL
+function fullDescClose() {
     fullDescriptionView = false;
     currentCard = NaN;
     fullDescriptionContainer.style.display = "none";
     fullDescriptionContainer.innerHTML = "";
-    cardsContainer.style.flexWrap = "wrap";
-
-    cardsContainer.style.height = "max-content";
-    cardsContainer.style.justifyContent = "";
+    cardsContainer.style.display = "";
+    buttonContainer.style.display = "";
 
     document.querySelectorAll(".exploration-card").forEach(el => {
-        el.style.height = "";
-        el.style.width = "";
-        el.style.overflowY = "";
-        el.style.overflowX = "";
         el.style.backgroundColor = ""
         el.style.color = "";
-        el.style.margin = "10px 0";
     })
     return;
+}
+
+// BUTTONS THAT OPEN FULL DESCRIPTION PANEL
+function buttonBuilder(id, text) {
+    let newButton = document.createElement("button");
+
+    newButton.setAttribute("identifier", id);
+    newButton.style.userSelect = "none";
+    newButton.innerHTML = text;
+    newButton.onclick = (e) => {
+        fullDescriptionBuilder(e.currentTarget.getAttribute("identifier"));
+    }
+    buttonContainer.appendChild(newButton);
 }

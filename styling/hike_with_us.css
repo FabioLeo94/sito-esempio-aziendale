@@ -1,5 +1,6 @@
 body {
     width: 100%;
+    min-height: 100%;
     position: absolute;
     background-image: url("/resources/images/courtnie-tosana-brqqSBSXPac-unsplash.jpg");
     background-position: top right;
@@ -16,7 +17,7 @@ body {
     border-top: 3px solid black;
     border-bottom: 3px solid black;
 }
-.title {
+.title-container .title {
     font-family: Georgia, 'Times New Roman', Times, serif;
     font-size: 70px;
     color: rgb(194, 168, 255);
@@ -27,8 +28,12 @@ body {
     display: flex;
     justify-content: center;
     max-width: calc(100% - 300px);
-    min-width: fit-content;
+    min-width: calc(100% - 50px);
     margin: 50px auto;
+}
+.form-container {
+    flex: 0 1 500px;
+    /* overflow: hidden; */
 }
 .content-body form {
     background-color: rgba(0, 0, 0, 0.7);
@@ -37,10 +42,10 @@ body {
     flex-wrap: wrap;
     justify-content: flex-start;
     align-items: flex-start;
-    width: 500px;
+    width: 100%;
     border: 2px solid rgba(255, 208, 0, 0.733);
     border-right: 1px solid rgba(255, 208, 0, 0.733);
-
+    flex: 0 1 auto;
     padding: 30px;
 }
 .content-body form label {
@@ -59,11 +64,10 @@ textarea {
     width: 250px;
     font-size: 18px;
     border-bottom: 2px solid rgb(0, 0, 0);
-
 }
 .content-body form textarea {
     margin-top: 10px;
-    resize: none;
+    resize: vertical;
     width: 100%;
     border: 2px solid rgba(255, 230, 0, 0.548);
 }
@@ -79,15 +83,13 @@ textarea {
     align-self: center;
     cursor: pointer;
 }
-
 input:focus,
 select:focus,
 textarea:focus,
 button:focus {
     outline: none;
 }
-
-.content-body form>div{
+.content-body form>div {
     display: flex;
     width: 100%;
     height: fit-content;
@@ -95,39 +97,104 @@ button:focus {
     justify-content: flex-start;
     gap: 10px;
     margin: 5px 0;
-    
 }
-
-.content-body form .button-container{
+.content-body form .button-container {
     justify-content: center;
     position: relative;
 }
-
-.some-text-panel{
+.some-text-panel {
     display: flex;
     flex-direction: column;
     color: rgb(219, 176, 83);
     background-color: rgba(0, 0, 0, 0.7);
-    max-width: 500px;
+    width: 500px;
     border-top: 2px solid rgba(255, 208, 0, 0.733);
     border-right: 2px solid rgba(255, 208, 0, 0.733);
     border-bottom: 2px solid rgba(255, 208, 0, 0.733);
-
 }
-
-.some-text-panel h1{
+.some-text-panel h1 {
     margin: 10px 0;
     padding: 0;
     text-align: center;
 }
-
-.some-text-panel img{
+.some-text-panel img {
     width: 250px;
     align-self: center;
 }
-
-.some-text-panel p{
+.some-text-panel p {
     hyphens: auto;
     text-align: justify;
     padding: 15px;
+}
+/* CLEAR PAR */
+.clear-par{
+    position: absolute;
+    top: 35px;
+    width: 100%;
+    text-align: center;
+    color: rgb(204, 37, 37);
+}
+@media only screen and (max-width: 900px) {
+    .title-container .title {
+        font-size: 50px;
+    }
+    .content-body {
+        align-items: center;
+        flex-direction: column-reverse;
+    }
+    .form-container {
+        width: 500px;
+    }
+    .content-body form {
+        border: 2px solid rgba(255, 208, 0, 0.733);
+        border-top: none;
+    }
+    .some-text-panel {
+        border: 2px solid rgba(255, 208, 0, 0.733);
+        border-bottom: 1px solid rgba(255, 208, 0, 0.733);
+    }
+}
+@media only screen and (max-width: 600px) {
+    .title-container .title {
+        font-size: 40px;
+    }
+    .form-container {
+        width: calc(100% - 35px);
+    }
+    .some-text-panel {
+        width: calc(100% - 35px);
+    }
+}
+@media only screen and (max-width: 450px) {
+    .clear-par{
+        top: 70px;
+    }
+    .content-body {
+        min-width: none;
+        max-width: none;
+        width: calc(100% - 15px);
+    }
+    .title-container .title {
+        font-size: 29px;
+    }
+    .form-container {
+        width: 100%;
+    }
+    .some-text-panel {
+        width: 100%;
+    }
+    .content-body form>div {
+        flex-direction: column;
+    }
+    .content-body form input {
+        width: 100%;
+    }
+    .content-body form input,
+    label,
+    textarea {
+        font-size: 14px;
+    }
+    .content-body form .button-container input {
+        margin: 5px;
+    }
 }
