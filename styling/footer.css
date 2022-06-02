@@ -1,0 +1,11 @@
+/* FOOTER */
+
+body footer {
+    padding: 30px 0;
+    width: 100%;
+    text-align: center;
+    background-color: rgb(50, 97, 31);
+    border-top: 3px solid black;
+    position: absolute;
+    bottom: -120px;
+}

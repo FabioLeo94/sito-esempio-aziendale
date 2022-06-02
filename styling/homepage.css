@@ -1,0 +1,593 @@
+body {
+    width: 100%;
+    background-image: url("/resources/images/forest.jpg");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    background-clip: content-box;
+    background-attachment: fixed;
+    position: absolute;
+}
+
+/* FIRST SECTION HOMEPAGE */
+
+.fs-homepage {
+    margin: 0;
+    /* width: 100vw; */
+    background-image: url("/resources/images/bailey-zindel-NRQV-hBF10M-unsplash.jpg");
+    background-repeat: no-repeat;
+    background-position: bottom;
+    background-size: cover;
+    position: relative;
+    height: 1080px;
+    padding: 0;
+    box-shadow: 0 0 200px inset black;
+    /* border-bottom: 2px solid black; */
+}
+.fs-container {
+    /* width: 100vw; */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+.fs-title-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(80, 80, 80, 0.4);
+    margin: 20px auto;
+    border-top: 3px solid black;
+    border-bottom: 3px solid black;
+    width: 100%;
+}
+.fs-title {
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    font-size: 70px;
+    color: rgb(194, 168, 255);
+    text-shadow: 0 0 3px black, 0 0 5px black;
+    margin: 10px auto;
+}
+
+/* FIRST SECTION IMAGE DESC CONTINER */
+
+.fs-img-desc-container {
+    display: flex;
+    width: 100%;
+    justify-content: center;
+}
+.fs-second-title-content {
+    display: flex;
+    justify-content: center;
+    align-self: center;
+    width: calc(100vw - 200px);
+    text-shadow: 5px 0 3px rgba(0, 0, 0, 0.315);
+}
+.fs-second-title-content p {
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    font-size: 30px;
+    margin: 0;
+    padding: 5px 0;
+    text-align: center;
+}
+.fs-par-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(27, 175, 35, 0.397);
+    padding: 10px;
+    border-bottom: 3px solid rgb(0, 0, 0);
+    border-top: 3px solid rgb(0, 0, 0);
+    margin-top: 200px;
+}
+.fs-par {
+    text-align: center;
+    font-size: calc(1vw + 1.3em);
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    font-weight: bolder;
+    color: rgb(36, 36, 36);
+    text-shadow: 0 0 3px rgb(156, 156, 156), 0 0 5px rgb(255, 255, 255);
+    margin: 0;
+    position: absolute;
+    z-index: 2;
+}
+
+/* CAMPING LOGO */
+
+.logo-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    width: 180px;
+    height: 180px;
+    /* border: 2px solid red; */
+}
+.logo-container .camping-logo {
+    z-index: 1;
+    margin-top: -10px;
+    /* margin-left: -13px; */
+    width: 200px;
+}
+
+/* IMAGE AND DESCRIPTION CONTAINER GENERIC STYLING */
+
+.img-desc-container {
+    display: flex;
+    flex-direction: column;
+    margin: 20px auto;
+    max-width: 1400px;
+}
+[class*="hiking-"] {
+    border: 3px solid rgb(0, 0, 0);
+    margin: 30px 0;
+    background-color: #9bc99669;
+    overflow: hidden;
+    display: flex;
+}
+[class*="hiking-"]>[class*="container-"] {
+    /* transition: transform 1s ease; */
+    /* -webkit-transition: all 1s cubic-bezier(0.47, 0.05, 0.38, 0.96);
+    transition: all 1s cubic-bezier(0.47, 0.05, 0.38, 0.96); */
+    -webkit-transition: all 1s cubic-bezier(0.63, 0.01, 0.27, 0.99);
+    transition: all 1s cubic-bezier(0.63, 0.01, 0.27, 0.99);
+}
+[class*="p-container-"] {
+    position: relative;
+    z-index: 3;
+}
+[class*="p-container-"]>p {
+    font-size: 35px;
+    color: rgb(255, 255, 255);
+    text-shadow: 0 0 5px black, 0 0 5px black;
+}
+[class^="p-container-"]>.under-p {
+    margin: 0;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    font-size: 13px;
+}
+
+/* IMAGES AND DESCRIPTIONS - HOMEPAGE - TYPE: 1*/
+
+.hiking-1 {
+    /* width: 100vw; */
+    padding: 0;
+}
+.hiking-1 .container-1 {
+    display: flex;
+    margin: 0;
+    padding: 0;
+}
+.hiking-1 .container-1 .img-container-1 {
+    width: 416px;
+    height: max-content;
+    overflow: hidden;
+}
+.hiking-1 .container-1 img {
+    float: left;
+    width: 500px;
+}
+.hiking-1 .container-1 .p-container-1 {
+    padding: 0 20px;
+    align-self: center;
+    font-size: 30px;
+    margin: 0;
+}
+
+/* IMAGE AND DESCRIPTION - HOMEPAGE - TYPE: 2 */
+
+.hiking-2 {
+    justify-content: end;
+    padding: 0;
+}
+.hiking-2 .container-2 {
+    display: flex;
+    margin: 0;
+    padding: 0;
+}
+.hiking-2 .container-2 .img-container-2 {
+    position: relative;
+    width: 516px;
+    height: 400px;
+    overflow: hidden;
+    right: -1px;
+}
+.hiking-2 .container-2 .img-container-2 img {
+    float: right;
+    width: 600px;
+    position: relative;
+    bottom: 0px;
+}
+.hiking-2 .container-2 .p-container-2 {
+    position: relative;
+    right: 0;
+    padding: 0 20px;
+    align-self: center;
+    font-size: 30px;
+    margin: 0;
+    text-align: right;
+}
+
+/* IMAGES AND DESCRIPTIONS - HOMEPAGE - TYPE: 3*/
+
+.hiking-3 {
+    /* width: 100vw; */
+    padding: 0;
+}
+.hiking-3 .container-3 {
+    display: flex;
+    margin: 0;
+    padding: 0;
+}
+.hiking-3 .container-3 .img-container-3 {
+    width: 516px;
+    height: 400px;
+    overflow: hidden;
+}
+.hiking-3 .container-3 img {
+    float: left;
+    width: 600px;
+}
+.hiking-3 .container-3 .p-container-3 {
+    padding: 0 20px;
+    align-self: center;
+    font-size: 30px;
+    margin: 0;
+}
+
+/* IMAGE AND DESCRIPTION - HOMEPAGE - TYPE: 4 */
+
+.hiking-4 {
+    justify-content: end;
+    padding: 0;
+}
+.hiking-4 .container-4 {
+    display: flex;
+    justify-content: end;
+    margin: 0;
+    padding: 0;
+}
+.hiking-4 .container-4 .img-container-4 {
+    width: 516px;
+    height: 350px;
+    overflow: hidden;
+    position: relative;
+    right: -1px;
+}
+.hiking-4 .container-4 .img-container-4 img {
+    float: right;
+    width: 550px;
+    position: relative;
+    bottom: 0px;
+}
+.hiking-4 .container-4 .p-container-4 {
+    padding: 0 20px;
+    align-self: center;
+    font-size: 30px;
+    margin: 0;
+    text-align: right;
+}
+
+/* IMAGES AND DESCRIPTIONS - HOMEPAGE - TYPE: 5*/
+
+.hiking-5 {
+    /* width: 100vw; */
+    padding: 0;
+}
+.hiking-5 .container-5 {
+    display: flex;
+    margin: 0;
+    padding: 0;
+}
+.hiking-5 .container-5 .img-container-5 {
+    width: 516px;
+    height: 400px;
+    overflow: hidden;
+}
+.hiking-5 .container-5 img {
+    float: left;
+    width: 600px;
+}
+.hiking-5 .container-5 .p-container-5 {
+    padding: 0 20px;
+    align-self: center;
+    font-size: 30px;
+    margin: 0;
+}
+
+/* IMAGE AND DESCRIPTION - HOMEPAGE - TYPE: 6 */
+
+.hiking-6 {
+    justify-content: end;
+    padding: 0;
+}
+.hiking-6 .container-6 {
+    display: flex;
+    justify-content: end;
+    margin: 0;
+    padding: 0;
+}
+.hiking-6 .container-6 .img-container-6 {
+    width: 516px;
+    height: 350px;
+    overflow: hidden;
+    position: relative;
+    right: -1px;
+}
+.hiking-6 .container-6 .img-container-6 img {
+    float: right;
+    width: 700px;
+    position: relative;
+    bottom: 0px;
+    left: 150px;
+}
+.hiking-6 .container-6 .p-container-6 {
+    padding: 0 20px;
+    align-self: center;
+    font-size: 30px;
+    margin: 0;
+    text-align: right;
+}
+
+/* RESPONSIVE */
+
+@media only screen and (max-width: 900px) {
+    .fs-homepage {
+        box-shadow: inset 0 0 150px;
+        height: 850px;
+    }
+    .fs-title {
+        font-size: 50px;
+    }
+    .fs-second-title-content p {
+        font-size: 25px;
+    }
+    .fs-par {
+        font-size: 20px;
+    }
+    .fs-par-container {
+        margin-top: 130px;
+    }
+    /* IMG AND DESC */
+    [class*="hiking-"] [class*="container-"] [class^="img-container-"] {
+        flex-shrink: 0;
+    }
+    [class*="hiking-"] [class*="container-"] [class^="p-container-"] .img-para {
+        font-size: 30px;
+        margin: 0;
+    }
+    .hiking-1 .container-1 .img-container-1 {
+        width: 350px;
+        height: max-content;
+    }
+    .hiking-1 .container-1 .img-container-1 img {
+        position: relative;
+        width: 520px;
+        left: -100px;
+    }
+    .hiking-2 .container-2 .img-container-2 {
+        width: 350px;
+        height: 300px;
+    }
+    .hiking-2 .container-2 .img-container-2 img {
+        position: relative;
+        width: 450px;
+        top: 0px;
+        left: 100px;
+    }
+    .hiking-3 .container-3 .img-container-3 {
+        width: 320px;
+        height: max-content;
+    }
+    .hiking-3 .container-3 .img-container-3 img {
+        position: relative;
+        width: 450px;
+        left: -40px;
+    }
+    .hiking-4 .container-4 .img-container-4 {
+        width: 400px;
+        height: max-content;
+    }
+    .hiking-4 .container-4 .img-container-4 img {
+        position: relative;
+        width: 500px;
+    }
+    .hiking-5 .container-5 .img-container-5 {
+        width: 320px;
+        height: max-content;
+    }
+    .hiking-5 .container-5 .img-container-5 img {
+        position: relative;
+        width: 450px;
+        left: -40px;
+    }
+    .hiking-6 .container-6 .img-container-6 {
+        width: 400px;
+        height: max-content;
+    }
+    .hiking-6 .container-6 .img-container-6 img {
+        display: flex;
+        position: relative;
+        width: 500px;
+    }
+}
+@media only screen and (max-width: 680px) {
+    .fs-title {
+        font-size: 40px;
+    }
+    .fs-second-title-content p {
+        font-size: 20px;
+    }
+    .fs-par {
+        font-size: 14px;
+    }
+    .logo-container .camping-logo {
+        width: 100px;
+    }
+    .fs-par-container {
+        margin-top: 130px;
+        height: 120px;
+    }
+    /* IMG AND DESC */
+    [class*="hiking-"] {
+        display: flex;
+        justify-content: center;
+    }
+    [class*="hiking-"] [class*="container-"] [class^="p-container-"] .img-para {
+        margin: 0;
+        font-size: 30px;
+        width: 100vw;
+    }
+    [class*="hiking-"] [class*="container-"] [class^="p-container-"] .under-p {
+        font-size: 11px;
+    }
+    [class*="hiking-"] [class*="container-"] [class^="p-container-"] img {
+        float: none;
+    }
+    [class*="hiking-"] [class*="container-"] {
+        flex-grow: 1;
+        flex-shrink: 0;
+    }
+    [class*="hiking-"] [class*="container-"] [class^="p-container-"] {
+        display: flex;
+        flex-direction: column;
+        position: absolute;
+        z-index: 3;
+    }
+    .hiking-1 .container-1 .img-container-1 {
+        position: relative;
+        width: 100vw;
+        height: max-content;
+    }
+    .hiking-1 .container-1 .img-container-1 img {
+        position: relative;
+        width: 100vw;
+        left: 0;
+    }
+    .hiking-2 .container-2 .img-container-2 {
+        position: relative;
+        width: 100vw;
+        height: max-content;
+    }
+    .hiking-2 .container-2 .img-container-2 img {
+        position: relative;
+        width: 100vw;
+        left: 0;
+        top: 0px;
+    }
+    .hiking-3 .container-3 .img-container-3 {
+        position: relative;
+        width: 100vw;
+        height: max-content;
+    }
+    .hiking-3 .container-3 .img-container-3 img {
+        position: relative;
+        width: 100vw;
+        left: 0px;
+    }
+    .hiking-4 .container-4 .img-container-4 {
+        position: relative;
+        width: 100vw;
+        height: max-content;
+    }
+    .hiking-4 .container-4 .img-container-4 img {
+        position: relative;
+        width: 100vw;
+        left: 0;
+    }
+    .hiking-5 .container-5 .img-container-5 {
+        width: 100vw;
+        height: max-content;
+    }
+    .hiking-5 .container-5 .img-container-5 img {
+        position: relative;
+        width: 100vw;
+        left: 0px;
+    }
+    .hiking-6 .container-6 .img-container-6 {
+        position: relative;
+        width: 100vw;
+        height: fit-content;
+    }
+    .hiking-6 .container-6 .img-container-6 img {
+        position: relative;
+        width: 100vw;
+        left: 0;
+    }
+    .hiking-1 .container-1 .p-container-1 {
+        display: flex;
+        width: 100wv;
+    }
+    .hiking-1 .container-1 .p-container-1 .under-p {
+        width: calc(100vw - 50px);
+        align-self: flex-start;
+    }
+    .hiking-2 .container-2 .p-container-2 {
+        display: flex;
+        width: 100wv;
+    }
+    .hiking-2 .container-2 .p-container-2 .under-p {
+        width: calc(100vw - 50px);
+        align-self: flex-end;
+    }
+    .hiking-3 .container-3 .p-container-3 {
+        display: flex;
+        width: 100wv;
+    }
+    .hiking-3 .container-3 .p-container-3 .under-p {
+        width: calc(100vw - 50px);
+        align-self: flex-start;
+    }
+    .hiking-4 .container-4 .p-container-4 {
+        display: flex;
+        width: 100wv;
+    }
+    .hiking-4 .container-4 .p-container-4 .under-p {
+        width: calc(100vw - 50px);
+        align-self: flex-end;
+    }
+    .hiking-5 .container-5 .p-container-5 {
+        display: flex;
+        width: 100wv;
+    }
+    .hiking-5 .container-5 .p-container-5 .under-p {
+        width: calc(100vw - 50px);
+        align-self: flex-start;
+    }
+    .hiking-6 .container-6 .p-container-6 {
+        display: flex;
+        width: 100wv;
+    }
+    .hiking-6 .container-6 .p-container-6 .under-p {
+        width: calc(100vw - 50px);
+        align-self: flex-end;
+    }
+}
+@media only screen and (max-width: 450px) {
+    .fs-homepage {
+        height: 600px;
+    }
+    .fs-title {
+        font-size: 29px;
+    }
+    .fs-second-title-content {
+        width: max-content;
+        margin: 0;
+    }
+    .fs-second-title-content p {
+        font-size: 20px;
+    }
+    /* .fs-par {
+        font-size: 13px;
+    } */
+    .logo-container .camping-logo {
+        width: 100px;
+    }
+    .fs-par-container {
+        margin-top: 130px;
+        height: 120px;
+    }
+    [class*="hiking-"] [class*="container-"] [class^="p-container-"] .img-para {
+        font-size: 22px;
+    }
+}
