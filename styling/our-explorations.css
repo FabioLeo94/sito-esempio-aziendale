@@ -1,0 +1,226 @@
+body {
+    position: absolute;
+    width: 100%;
+    min-height: 100%;
+    background-image: url("/resources/images/exploration-bg.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: top left;
+    background-attachment: fixed;
+}
+
+body .title-container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(80, 80, 80, 0.4);
+    margin: 20px auto;
+    border-top: 3px solid black;
+    border-bottom: 3px solid black;
+    width: 100%;
+}
+
+.title {
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    font-size: 70px;
+    color: rgb(194, 168, 255);
+    text-shadow: 0 0 3px black, 0 0 5px black;
+    margin: 10px auto;
+    text-align: center;
+    width: 100%;
+}
+body .content-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 0 50px;
+    position: relative;
+    /* overflow: hidden; */
+}
+
+/* CARDS CONTAINER */
+
+.cards-container *{
+user-select: none;
+}
+.cards-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    background-color: rgba(175, 149, 79, 0.459);
+    width: calc(100% - 50px);
+    border: 3px solid black;
+    border-radius: 5px;
+    padding: 15px;
+    position: relative;
+    /* overflow: hidden; */
+}
+
+.cards-container .exploration-card .img-container{
+    width: fit-content;
+}
+.cards-container .exploration-card .img-container img {
+    object-fit: cover;
+    width: 280px;
+    height: 220px;
+    border: 1px solid rgb(0, 0, 0);
+    padding: 5px;
+    background-color: rgb(181, 117, 255);
+    border-radius: 5px;
+}
+.cards-container .exploration-card {
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: rgb(252, 255, 83);
+    width: 300px;
+    border-radius: 10px;
+    margin: 10px;
+    border: 1px solid black;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    transition: background-color .2s ease, color .4s ease;
+    /* overflow: hidden; */
+}
+.cards-container .exploration-card:hover {
+    background-color: rgb(53, 56, 199);
+    color: white;
+}
+
+.cards-container .exploration-card .card-title {
+    font-weight: bold;
+}
+
+/* BUTTONS */
+.buttons-container{
+    display: none;
+    flex-wrap: nowrap;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(221, 255, 31, 0.459);
+    border: 2px solid black;
+    padding: 5px;
+    margin: 5px;
+    flex-wrap: wrap;
+    width: 100%;
+}
+
+.buttons-container button{
+    font-weight: bolder;
+    margin: 2px 5px;
+    padding: 7px;
+    width: 100px;
+    background-color: rgb(252, 255, 83);
+    border: 2px solid black;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color .2s ease, color .4s ease;
+}
+.buttons-container button:hover{
+    background-color: rgb(53, 56, 199);
+    color: white;
+}
+/* FULL CARDS DESCRIPTION PANEL */
+.content-container .exp-full-content {
+    display: none;
+    height: 0px;
+    overflow: hidden;
+    background-color: blanchedalmond;
+    border: 3px solid black;
+    position: relative;
+    width: calc(100% - 100px);
+}
+
+.content-container .exp-full-content .full-desc-close-btn{
+    background-color: rgb(0, 0, 0);
+    color: white;
+    border: 2px solid rgb(102, 102, 102);
+    box-shadow: 0 0 4px rgba(0, 0, 0, 0.6);
+    width: 100px;
+    position: absolute;
+    right: 10px;
+    top: 10px;
+}
+.content-container .exp-full-content .full-desc-img{
+    width: 400px;
+    float: left;
+    margin: 20px;
+    border: 3px solid black;
+}
+.content-container .exp-full-content .full-desc-title{
+    font-weight: bolder;
+    font-size: 25px;
+    text-align: center;
+    margin: 10px 0;
+}
+.content-container .exp-full-content .full-desc-par{
+    margin: 25px;
+    hyphens: auto;
+    text-align: justify;
+    font-size: 18px;
+}
+
+@media only screen and (max-width: 900px) {
+    .title{
+        font-size: 50px;
+    }
+    body .content-container{
+        margin: 0 10px;
+    }
+    .cards-container .exploration-card{
+        width: 250px;
+        margin: 5px;
+    }
+    .cards-container .exploration-card .img-container img{
+        width: 230px;
+    }
+    .content-container .exp-full-content{
+        display: flex;
+        width: calc(100% - 15px);
+    }
+    .content-container .exp-full-content .full-desc-img{
+        display: block;
+        float: none;
+        margin: 0 auto;
+    }
+    .content-container .exp-full-content .full-desc-par{
+        display: block;
+        clear: both;
+    }
+}
+@media only screen and (max-width: 600px) {
+    .title{
+        font-size: 40px;
+    }
+}
+@media only screen and (max-width: 500px){
+    .content-container .exp-full-content .full-desc-img{
+        width: 350px;
+    }
+}
+@media only screen and (max-width: 450px) {
+    body .content-container{
+        margin: 0;
+    }
+    .cards-container{
+        width: calc(100% - 10px);
+        padding: 5px;
+    }
+    /* FULL DESCRIPTION PANEL AND CONTENT */
+    .title{
+        font-size: 29px;
+    }
+    .content-container .exp-full-content{
+        width: calc(100% - 5px);
+    }
+    .content-container .exp-full-content .full-desc-close-btn{
+        width: 50px;
+        height: 30px;
+    }
+    .content-container .exp-full-content .full-desc-img{
+        width: 250px;
+    }
+    .content-container .exp-full-content .full-desc-par{
+        font-size: 15px;
+    }
+}
