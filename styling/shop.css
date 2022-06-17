@@ -4,7 +4,7 @@ html {
 body {
     display: block;
     position: relative;
-    background-image: url("/resources/images/shop_photo.jpg");
+    background-image: url("../resources/images/shop_photo.jpg");
     background-repeat: no-repeat;
     background-position: top;
     background-size: 2000px 1600px;

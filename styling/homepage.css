@@ -1,6 +1,6 @@
 body {
     width: 100%;
-    background-image: url("/resources/images/forest.jpg");
+    background-image: url("../resources/images/forest.jpg");
     background-repeat: no-repeat;
     background-position: center;
     background-size: cover;
@@ -14,7 +14,7 @@ body {
 .fs-homepage {
     margin: 0;
     /* width: 100vw; */
-    background-image: url("/resources/images/bailey-zindel-NRQV-hBF10M-unsplash.jpg");
+    background-image: url("../resources/images/bailey-zindel-NRQV-hBF10M-unsplash.jpg");
     background-repeat: no-repeat;
     background-position: bottom;
     background-size: cover;

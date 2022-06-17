@@ -2,7 +2,7 @@ body {
     width: 100%;
     min-height: 100%;
     position: absolute;
-    background-image: url("/resources/images/courtnie-tosana-brqqSBSXPac-unsplash.jpg");
+    background-image: url("../resources/images/courtnie-tosana-brqqSBSXPac-unsplash.jpg");
     background-position: top right;
     background-attachment: fixed;
     background-size: cover;
