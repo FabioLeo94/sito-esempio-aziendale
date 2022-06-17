@@ -213,7 +213,7 @@ function chartItemsBuilder(id, name, price, amount) {
     // newAmountNum.setAttribute("readOnly", "");
     newAmountNum.setAttribute("identifier-amount", id)
 
-    newDeleteBtnImg.setAttribute("src", "/resources/icons/red-cross.png");
+    newDeleteBtnImg.setAttribute("src", "../resources/icons/red-cross.png");
     newDeleteBtnImg.setAttribute("alt", "red cross");
     newDeleteBtnImg.setAttribute("title", "Rimuovi questo articolo dalla lista.");
     newDeleteBtnImg.setAttribute("identifier-amount", id)
